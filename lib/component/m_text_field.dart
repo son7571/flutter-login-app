@@ -3,11 +3,17 @@ import 'package:flutter/material.dart';
 class MTextField extends StatelessWidget {
   String name;
 
-  MTextField(this.name);
+  bool isPassword;
+
+  TextEditingController controller;
+
+  MTextField(this.name, this.controller, {this.isPassword = false});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      obscureText: isPassword,
       decoration: InputDecoration(
         hintText: "$name를 입력하세요",
         enabledBorder: OutlineInputBorder(
